@@ -14,10 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+
 
                 <android.support.design.widget.AppBarLayout
                     android:layout_width="match_parent"
@@ -30,6 +27,7 @@
                         android:background="?attr/colorPrimary"
                         android:minHeight="?attr/actionBarSize"
                         android:theme="@style/Toolbar"
+                        app:layout_scrollFlags="scroll|enterAlways"
                         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
 
@@ -37,10 +35,10 @@
                         android:id="@+id/news_activity_tablayout"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:background="@color/colorPrimary"
-                        app:tabIndicatorColor="@color/colorAccent"
-                        app:tabSelectedTextColor="@color/colorAccent"
-                        app:tabTextColor="#FFFFFF"
+                        android:background="#A6E3E9"
+                        app:tabIndicatorColor="#E3FDFD"
+                        app:tabSelectedTextColor="#CBF1F5"
+                        app:tabTextColor="#34495D"
                         app:layout_scrollFlags="scroll|enterAlways"/>
 
 
@@ -50,9 +48,9 @@
                     android:id="@+id/news_activity_viewpager"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:layout_scrollFlags="scroll|enterAlways"/>
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                    />
 
-            </LinearLayout>
 
 
         </android.support.design.widget.CoordinatorLayout>
