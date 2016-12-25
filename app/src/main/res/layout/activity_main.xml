@@ -35,10 +35,10 @@
                         android:id="@+id/news_activity_tablayout"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:background="#A6E3E9"
-                        app:tabIndicatorColor="#E3FDFD"
-                        app:tabSelectedTextColor="#CBF1F5"
-                        app:tabTextColor="#34495D"
+                        android:background="@color/colorAccent"
+                        app:tabIndicatorColor="@color/colorPrimaryDark"
+                        app:tabSelectedTextColor="@color/colorChooseText"
+                        app:tabTextColor="@color/colorText"
                         app:layout_scrollFlags="scroll|enterAlways"/>
 
 
