@@ -20,6 +20,8 @@ public class NewsPresenter implements NewsContract.Presenter {
         this.newsView = view;
     }
 
+    private List<String> titles;
+
     /**
      * 初始化数据
      */
@@ -30,10 +32,31 @@ public class NewsPresenter implements NewsContract.Presenter {
 
     @Override
     public void loadData() {
-        List<String> titles = new ArrayList<String>();
+        titles = new ArrayList<String>();
         for(int i=0;i<20;i++){
             titles.add("titles"+i);
         }
         newsView.showData(titles);
+    }
+
+    @Override
+    public void loadMoreData() {
+        for(int i=0;i<20;i++){
+            titles.add("more titles"+i);
+        }
+        newsView.showData(titles);
+    }
+
+    @Override
+    public void loadNewData() {
+        for(int i=0;i<20;i++){
+            titles.add("new titles"+i);
+        }
+        newsView.showData(titles);
+    }
+
+    @Override
+    public List<String> getData() {
+        return titles;
     }
 }

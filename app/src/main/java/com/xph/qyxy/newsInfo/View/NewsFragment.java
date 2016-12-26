@@ -10,6 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.chanven.lib.cptr.PtrClassicFrameLayout;
+import com.chanven.lib.cptr.PtrDefaultHandler;
+import com.chanven.lib.cptr.PtrFrameLayout;
+import com.chanven.lib.cptr.loadmore.OnLoadMoreListener;
+import com.chanven.lib.cptr.recyclerview.RecyclerAdapterWithHF;
 import com.xph.qyxy.R;
 import com.xph.qyxy.newsInfo.Adapter.NewsRecyclerViewAdapter;
 import com.xph.qyxy.newsInfo.NewsContract;
@@ -40,6 +45,11 @@ public class NewsFragment extends Fragment implements NewsContract.View{
     private NewsRecyclerViewAdapter adapter;
 
     private NewsContract.Presenter presenter;
+
+    private PtrClassicFrameLayout ptrClassicFrameLayout;
+
+    private RecyclerAdapterWithHF newsAdapter;
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -72,10 +82,6 @@ public class NewsFragment extends Fragment implements NewsContract.View{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-
-
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -135,7 +141,30 @@ public class NewsFragment extends Fragment implements NewsContract.View{
         RecyclerView.LayoutManager manager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(manager);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(adapter);
+        newsAdapter = new RecyclerAdapterWithHF(adapter);
+        recyclerView.setAdapter(newsAdapter);
+
+        //设置上拉刷新
+        ptrClassicFrameLayout = (PtrClassicFrameLayout)view.findViewById(R.id.news_list_view_frame);
+        ptrClassicFrameLayout.setPtrHandler(new PtrDefaultHandler() {
+            @Override
+            public void onRefreshBegin(PtrFrameLayout frame) {
+                //加载更多数据
+                presenter.loadNewData();
+                newsAdapter.notifyDataSetChanged();
+                ptrClassicFrameLayout.refreshComplete();
+                ptrClassicFrameLayout.setLoadMoreEnable(true);
+            }
+        });//设置下拉监听
+        ptrClassicFrameLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void loadMore() {
+                presenter.loadMoreData();
+                newsAdapter.notifyDataSetChanged();
+                ptrClassicFrameLayout.refreshComplete();
+            }
+        });//设置上拉监听
+        ptrClassicFrameLayout.setLoadMoreEnable(true);//设置可以加载更多
     }
 
     /**
@@ -152,4 +181,7 @@ public class NewsFragment extends Fragment implements NewsContract.View{
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+
+
 }

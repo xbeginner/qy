@@ -14,7 +14,7 @@ import java.util.List;
  * Created by xikai on 2016/12/20.
  */
 
-public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerViewAdapter.ViewHolder> {
+public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
 
     List<String> titles ;
@@ -33,9 +33,12 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerVi
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.textView.setText(titles.get(position));
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        ViewHolder viewHolder = (ViewHolder)holder;
+        viewHolder.textView.setText(titles.get(position));
     }
+
+
 
     @Override
     public int getItemCount() {

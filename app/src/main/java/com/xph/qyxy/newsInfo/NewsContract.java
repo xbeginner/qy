@@ -17,5 +17,13 @@ public interface NewsContract {
 
     interface Presenter extends BasePresenter {
         void loadData();
+
+        //上拉刷新
+        void loadMoreData();
+
+        //下拉加载更多
+        void loadNewData();
+
+        List<String> getData();
     }
 }
