@@ -100,6 +100,10 @@ public class MainActivity extends AppCompatActivity implements NewsFragment.OnFr
     }
 
 
+    /**
+     *  监听侧边栏点击事件
+     */
+
     private void setupDrawerContent(NavigationView navigationView) {
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
@@ -123,6 +127,12 @@ public class MainActivity extends AppCompatActivity implements NewsFragment.OnFr
                 });
     }
 
+
+    /**
+     * 点击系统菜单事件
+      * @param item
+     * @return
+     */
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

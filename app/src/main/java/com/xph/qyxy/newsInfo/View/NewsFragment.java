@@ -39,14 +39,16 @@ public class NewsFragment extends Fragment implements NewsContract.View{
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    private RecyclerView recyclerView;
-    private View view;
+    @BindView(R.id.news_recycler_view_id)
+    RecyclerView recyclerView;
+
+    @BindView(R.id.news_list_view_frame)
+    PtrClassicFrameLayout ptrClassicFrameLayout;
+
 
     private NewsRecyclerViewAdapter adapter;
 
     private NewsContract.Presenter presenter;
-
-    private PtrClassicFrameLayout ptrClassicFrameLayout;
 
     private RecyclerAdapterWithHF newsAdapter;
 
@@ -58,7 +60,7 @@ public class NewsFragment extends Fragment implements NewsContract.View{
     private OnFragmentInteractionListener mListener;
 
     public NewsFragment() {
-        // Required empty public constructor
+
     }
 
     /**
@@ -92,7 +94,8 @@ public class NewsFragment extends Fragment implements NewsContract.View{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_news, container, false);
+        View view = inflater.inflate(R.layout.fragment_news, container, false);
+        ButterKnife.bind(this, view);
         return view;
     }
 
@@ -137,7 +140,6 @@ public class NewsFragment extends Fragment implements NewsContract.View{
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         presenter.start();
-        RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.news_recycler_view_id);
         RecyclerView.LayoutManager manager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(manager);
         recyclerView.setHasFixedSize(true);
@@ -145,7 +147,6 @@ public class NewsFragment extends Fragment implements NewsContract.View{
         recyclerView.setAdapter(newsAdapter);
 
         //设置上拉刷新
-        ptrClassicFrameLayout = (PtrClassicFrameLayout)view.findViewById(R.id.news_list_view_frame);
         ptrClassicFrameLayout.setPtrHandler(new PtrDefaultHandler() {
             @Override
             public void onRefreshBegin(PtrFrameLayout frame) {
