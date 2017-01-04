@@ -16,7 +16,11 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.xph.qyxy.newsInfo.DaggerNewsInfoComponent;
+import com.xph.qyxy.newsInfo.Presenter.NewsPresenter;
 import com.xph.qyxy.newsInfo.View.NewsFragment;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,6 +38,9 @@ public class MainActivity extends AppCompatActivity implements NewsFragment.OnFr
     @BindView(R.id.news_activity_viewpager)
     ViewPager viewPager;
 
+    @Inject
+    NewsPresenter newsPresenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +51,10 @@ public class MainActivity extends AppCompatActivity implements NewsFragment.OnFr
 
         initStatusBar();
         initView();
+
+        //注入Dagger
+        DaggerNewsInfoComponent.builder()
+                .newsInfoModule()
 
     }
 
@@ -75,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements NewsFragment.OnFr
 
         //设置ViewPager
         FragmentManager manager = getSupportFragmentManager();
-        MainViewPagerAdapter viewPagerAdapter = new MainViewPagerAdapter(manager);
+        MainViewPagerAdapter viewPagerAdapter = new MainViewPagerAdapter(manager,newsPresenter);
         viewPager.setAdapter(viewPagerAdapter);
 
         tabLayout.setupWithViewPager(viewPager);

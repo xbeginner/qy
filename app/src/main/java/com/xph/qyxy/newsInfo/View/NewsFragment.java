@@ -22,6 +22,8 @@ import com.xph.qyxy.newsInfo.Presenter.NewsPresenter;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -45,6 +47,8 @@ public class NewsFragment extends Fragment implements NewsContract.View{
     @BindView(R.id.news_list_view_frame)
     PtrClassicFrameLayout ptrClassicFrameLayout;
 
+    @Inject
+    NewsPresenter newsPresenter;
 
     private NewsRecyclerViewAdapter adapter;
 

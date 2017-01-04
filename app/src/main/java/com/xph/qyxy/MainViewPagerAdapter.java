@@ -20,11 +20,10 @@ public class MainViewPagerAdapter extends FragmentPagerAdapter {
     List<Fragment> fragments = new ArrayList<Fragment>();
     String[] titles = {"沁阳新闻","理财信息","征信知识"};
 
-    public MainViewPagerAdapter(FragmentManager fm) {
+    public MainViewPagerAdapter(FragmentManager fm,NewsContract.Presenter presenter) {
         super(fm);
 
         NewsFragment fragment = NewsFragment.newInstance("1","2");
-        NewsPresenter presenter = new NewsPresenter(fragment);
         fragment.setPresenter(presenter);
         fragments.add(fragment);
 
