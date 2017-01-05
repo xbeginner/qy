@@ -17,8 +17,14 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.xph.qyxy.newsInfo.DaggerNewsInfoComponent;
+import com.xph.qyxy.newsInfo.NewsInfoModule;
 import com.xph.qyxy.newsInfo.Presenter.NewsPresenter;
 import com.xph.qyxy.newsInfo.View.NewsFragment;
+import com.xph.qyxy.utils.BasePresenter;
+import com.xph.qyxy.utils.BaseView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -41,6 +47,9 @@ public class MainActivity extends AppCompatActivity implements NewsFragment.OnFr
     @Inject
     NewsPresenter newsPresenter;
 
+
+    private NewsFragment newsFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,12 +58,16 @@ public class MainActivity extends AppCompatActivity implements NewsFragment.OnFr
         //绑定ButterKnife
         ButterKnife.bind(this);
 
+        newsFragment = NewsFragment.newInstance("1","2");
+        //注入Dagger
+        DaggerNewsInfoComponent.builder()
+                .newsInfoModule(new NewsInfoModule(newsFragment))
+                .build()
+                .inject(this);
+
         initStatusBar();
         initView();
 
-        //注入Dagger
-        DaggerNewsInfoComponent.builder()
-                .newsInfoModule()
 
     }
 
@@ -86,7 +99,16 @@ public class MainActivity extends AppCompatActivity implements NewsFragment.OnFr
 
         //设置ViewPager
         FragmentManager manager = getSupportFragmentManager();
-        MainViewPagerAdapter viewPagerAdapter = new MainViewPagerAdapter(manager,newsPresenter);
+
+
+        //初始化ViewPager的三个Fragment界面
+        List<BasePresenter> presenterList = new ArrayList<BasePresenter>();
+        List<BaseView> viewList = new ArrayList<BaseView>();
+
+        presenterList.add(newsPresenter);
+        viewList.add(newsFragment);
+
+        MainViewPagerAdapter viewPagerAdapter = new MainViewPagerAdapter(manager,presenterList,viewList);
         viewPager.setAdapter(viewPagerAdapter);
 
         tabLayout.setupWithViewPager(viewPager);

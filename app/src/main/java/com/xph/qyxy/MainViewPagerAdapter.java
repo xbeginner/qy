@@ -7,6 +7,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.xph.qyxy.newsInfo.NewsContract;
 import com.xph.qyxy.newsInfo.Presenter.NewsPresenter;
 import com.xph.qyxy.newsInfo.View.NewsFragment;
+import com.xph.qyxy.utils.BasePresenter;
+import com.xph.qyxy.utils.BaseView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,13 +22,14 @@ public class MainViewPagerAdapter extends FragmentPagerAdapter {
     List<Fragment> fragments = new ArrayList<Fragment>();
     String[] titles = {"沁阳新闻","理财信息","征信知识"};
 
-    public MainViewPagerAdapter(FragmentManager fm,NewsContract.Presenter presenter) {
+    public MainViewPagerAdapter(FragmentManager fm
+        ,List<BasePresenter> presentList
+        ,List<BaseView> fragmentList) {
         super(fm);
-
-        NewsFragment fragment = NewsFragment.newInstance("1","2");
-        fragment.setPresenter(presenter);
-        fragments.add(fragment);
-
+        for(int i=0;i<fragmentList.size();i++){
+            fragmentList.get(i).setPresenter(presentList.get(i));
+            fragments.add((Fragment) fragmentList.get(i));
+        }
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.xph.qyxy.newsInfo;
 
 import com.xph.qyxy.newsInfo.Presenter.NewsPresenter;
+import com.xph.qyxy.newsInfo.View.NewsFragment;
 
 import javax.inject.Singleton;
 
@@ -15,16 +16,17 @@ import dagger.Provides;
 @Module
 public class NewsInfoModule {
 
-    private final NewsContract.View mView;
+    NewsContract.View mView;
 
-    public NewsInfoModule(NewsContract.View view) {
-        mView = view;
+    public NewsInfoModule(NewsContract.View mView){
+        this.mView = mView;
+    }
+
+    @Provides
+    NewsPresenter newsPresenter(){
+      return new NewsPresenter(mView);
     }
 
 
-  @Provides
-  NewsPresenter newsPresenter(){
-      return new NewsPresenter(mView);
-  }
 
 }
