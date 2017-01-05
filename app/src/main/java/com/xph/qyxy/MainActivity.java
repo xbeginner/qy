@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements NewsFragment.OnFr
 
         //注入Dagger
         DaggerNewsInfoComponent.builder()
-                .newsInfoModule()
+                .newsInfoModule();
 
     }
 
@@ -159,4 +159,6 @@ public class MainActivity extends AppCompatActivity implements NewsFragment.OnFr
     public void onFragmentInteraction(Uri uri) {
 
     }
+
+
 }
