@@ -1,4 +1,4 @@
-package com.xph.qyxy;
+package com.xph.qyxy.di.module;
 
 import android.content.Context;
 

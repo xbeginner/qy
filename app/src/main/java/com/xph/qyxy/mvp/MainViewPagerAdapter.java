@@ -1,12 +1,9 @@
-package com.xph.qyxy;
+package com.xph.qyxy.mvp;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.xph.qyxy.newsInfo.NewsContract;
-import com.xph.qyxy.newsInfo.Presenter.NewsPresenter;
-import com.xph.qyxy.newsInfo.View.NewsFragment;
 import com.xph.qyxy.utils.BasePresenter;
 import com.xph.qyxy.utils.BaseView;
 

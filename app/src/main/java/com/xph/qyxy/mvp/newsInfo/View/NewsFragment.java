@@ -1,4 +1,4 @@
-package com.xph.qyxy.newsInfo.View;
+package com.xph.qyxy.mvp.newsInfo.View;
 
 import android.content.Context;
 import android.net.Uri;
@@ -16,9 +16,9 @@ import com.chanven.lib.cptr.PtrFrameLayout;
 import com.chanven.lib.cptr.loadmore.OnLoadMoreListener;
 import com.chanven.lib.cptr.recyclerview.RecyclerAdapterWithHF;
 import com.xph.qyxy.R;
-import com.xph.qyxy.newsInfo.Adapter.NewsRecyclerViewAdapter;
-import com.xph.qyxy.newsInfo.NewsContract;
-import com.xph.qyxy.newsInfo.Presenter.NewsPresenter;
+import com.xph.qyxy.mvp.newsInfo.Presenter.NewsPresenter;
+import com.xph.qyxy.mvp.newsInfo.Adapter.NewsRecyclerViewAdapter;
+import com.xph.qyxy.mvp.newsInfo.NewsContract;
 
 import java.util.List;
 

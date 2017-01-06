@@ -1,4 +1,4 @@
-package com.xph.qyxy.newsInfo.Adapter;
+package com.xph.qyxy.mvp.newsInfo.Adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

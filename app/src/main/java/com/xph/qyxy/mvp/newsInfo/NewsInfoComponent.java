@@ -1,11 +1,9 @@
-package com.xph.qyxy.newsInfo;
+package com.xph.qyxy.mvp.newsInfo;
 
-import com.xph.qyxy.ApplicationModule;
-import com.xph.qyxy.MainActivity;
-import com.xph.qyxy.newsInfo.Model.Entity.NewsInfo;
+import com.xph.qyxy.di.module.ApplicationModule;
+import com.xph.qyxy.mvp.MainActivity;
 
 import dagger.Component;
-import dagger.Module;
 
 /**
  * Created by xikai on 2017/1/4.

@@ -1,4 +1,4 @@
-package com.xph.qyxy.newsInfo;
+package com.xph.qyxy.mvp.newsInfo;
 
 import com.xph.qyxy.utils.BasePresenter;
 import com.xph.qyxy.utils.BaseView;

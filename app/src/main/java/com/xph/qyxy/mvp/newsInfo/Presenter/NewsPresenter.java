@@ -1,9 +1,8 @@
-package com.xph.qyxy.newsInfo.Presenter;
+package com.xph.qyxy.mvp.newsInfo.Presenter;
 
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
-import com.xph.qyxy.newsInfo.NewsContract;
+import com.xph.qyxy.mvp.newsInfo.NewsContract;
 
 import java.util.ArrayList;
 import java.util.List;

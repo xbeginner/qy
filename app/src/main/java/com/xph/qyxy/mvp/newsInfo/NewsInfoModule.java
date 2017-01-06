@@ -1,9 +1,6 @@
-package com.xph.qyxy.newsInfo;
+package com.xph.qyxy.mvp.newsInfo;
 
-import com.xph.qyxy.newsInfo.Presenter.NewsPresenter;
-import com.xph.qyxy.newsInfo.View.NewsFragment;
-
-import javax.inject.Singleton;
+import com.xph.qyxy.mvp.newsInfo.Presenter.NewsPresenter;
 
 import dagger.Module;
 import dagger.Provides;

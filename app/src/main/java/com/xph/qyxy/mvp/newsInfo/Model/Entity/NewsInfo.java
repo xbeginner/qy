@@ -1,4 +1,4 @@
-package com.xph.qyxy.newsInfo.Model.Entity;
+package com.xph.qyxy.mvp.newsInfo.Model.Entity;
 
 /**
  * Created by xikai on 2017/1/4.
@@ -6,4 +6,7 @@ package com.xph.qyxy.newsInfo.Model.Entity;
  */
 
 public class NewsInfo {
+
+
+
 }

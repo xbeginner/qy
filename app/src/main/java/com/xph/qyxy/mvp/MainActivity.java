@@ -1,4 +1,4 @@
-package com.xph.qyxy;
+package com.xph.qyxy.mvp;
 
 import android.net.Uri;
 import android.os.Build;
@@ -16,10 +16,11 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.xph.qyxy.R;
 import com.xph.qyxy.newsInfo.DaggerNewsInfoComponent;
-import com.xph.qyxy.newsInfo.NewsInfoModule;
-import com.xph.qyxy.newsInfo.Presenter.NewsPresenter;
-import com.xph.qyxy.newsInfo.View.NewsFragment;
+import com.xph.qyxy.mvp.newsInfo.NewsInfoModule;
+import com.xph.qyxy.mvp.newsInfo.Presenter.NewsPresenter;
+import com.xph.qyxy.mvp.newsInfo.View.NewsFragment;
 import com.xph.qyxy.utils.BasePresenter;
 import com.xph.qyxy.utils.BaseView;
 
@@ -47,7 +48,6 @@ public class MainActivity extends AppCompatActivity implements NewsFragment.OnFr
     @Inject
     NewsPresenter newsPresenter;
 
-
     private NewsFragment newsFragment;
 
     @Override
@@ -67,7 +67,6 @@ public class MainActivity extends AppCompatActivity implements NewsFragment.OnFr
 
         initStatusBar();
         initView();
-
 
     }
 
