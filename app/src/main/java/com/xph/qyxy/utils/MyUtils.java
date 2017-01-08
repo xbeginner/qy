@@ -8,6 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 
+import com.socks.library.KLog;
+import com.xph.qyxy.App;
+
+import com.xph.qyxy.common.Constants;
+
 import java.lang.reflect.Field;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -103,16 +108,16 @@ public class MyUtils {
         return color;
     }
 
-    public static String analyzeNetworkError(Throwable e) {
-        String errMsg = App.getAppContext().getString(R.string.load_error);
-        if (e instanceof HttpException) {
-            int state = ((HttpException) e).code();
-            if (state == 403) {
-                errMsg = App.getAppContext().getString(R.string.retry_after);
-            }
-        }
-        return errMsg;
-    }
+//    public static String analyzeNetworkError(Throwable e) {
+//        String errMsg = App.getAppContext().getString(R.string.load_error);
+//        if (e instanceof HttpException) {
+//            int state = ((HttpException) e).code();
+//            if (state == 403) {
+//                errMsg = App.getAppContext().getString(R.string.retry_after);
+//            }
+//        }
+//        return errMsg;
+//    }
 
     public static void cancelSubscription(Subscription subscription) {
         if (subscription != null && !subscription.isUnsubscribed()) {

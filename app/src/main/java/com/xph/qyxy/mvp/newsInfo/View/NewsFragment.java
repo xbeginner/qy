@@ -133,6 +133,21 @@ public class NewsFragment extends Fragment implements NewsContract.View{
     }
 
     @Override
+    public void showProgress() {
+
+    }
+
+    @Override
+    public void hideProgress() {
+
+    }
+
+    @Override
+    public void showMsg(String message) {
+
+    }
+
+    @Override
     public void showData(List<String> titles) {
 
          adapter = new NewsRecyclerViewAdapter(titles);

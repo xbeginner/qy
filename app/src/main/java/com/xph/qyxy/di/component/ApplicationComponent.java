@@ -1,5 +1,4 @@
 /*
- * Copyright (c) 2016 咖枯 <kaku201313@163.com | 3772304@qq.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,15 +17,16 @@ package com.xph.qyxy.di.component;
 
 import android.content.Context;
 
-import com.kaku.colorfulnews.di.module.ApplicationModule;
-import com.kaku.colorfulnews.di.scope.ContextLife;
-import com.kaku.colorfulnews.di.scope.PerApp;
+
+import com.xph.qyxy.di.module.ApplicationModule;
+import com.xph.qyxy.di.scope.ContextLife;
+import com.xph.qyxy.di.scope.PerApp;
 
 import dagger.Component;
 
 /**
- * @author 咖枯
- * @version 1.0 2016/6/22
+ * 创建一个Compenent,提供Application的Context
+ * 提供一个获取Application context的方法
  */
 @PerApp
 @Component(modules = ApplicationModule.class)

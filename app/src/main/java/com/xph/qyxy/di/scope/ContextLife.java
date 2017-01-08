@@ -23,13 +23,13 @@ import java.lang.annotation.RetentionPolicy;
 import javax.inject.Qualifier;
 
 /**
- * @author 咖枯
- * @version 1.0 2016/6/24
+ * @Qualifier可以定义名字进行引用
+ * @Named是@Qualifier的一个默认实现
+ * 这里是固定写法
  */
 @Qualifier
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ContextLife {
     String value() default "Application";
-
 }

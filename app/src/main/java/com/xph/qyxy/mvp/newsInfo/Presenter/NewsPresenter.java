@@ -3,6 +3,7 @@ package com.xph.qyxy.mvp.newsInfo.Presenter;
 import android.support.annotation.NonNull;
 
 import com.xph.qyxy.mvp.newsInfo.NewsContract;
+import com.xph.qyxy.utils.BaseView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,9 +25,21 @@ public class NewsPresenter implements NewsContract.Presenter {
     /**
      * 初始化数据
      */
+
+
     @Override
-    public void start() {
-         loadData();
+    public void onCreate() {
+
+    }
+
+    @Override
+    public void attachView(@NonNull BaseView view) {
+         
+    }
+
+    @Override
+    public void onDestroy() {
+
     }
 
     @Override

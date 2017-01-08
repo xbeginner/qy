@@ -14,21 +14,17 @@
  * limitations under the License.
  *
  */
-package com.xph.qyxy.di.scope;
-
-import java.lang.annotation.Documented;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-
-import javax.inject.Scope;
+package com.xph.qyxy.listener;
 
 /**
- * 定义一个scope,在module和component中使用
- * 可以保证component中module生产的对象是单例
- * @version 1.0 2017/1/5
+ * @author 咖枯
+ * @version 1.0 2016/5/29
  */
-@Scope
-@Documented
-@Retention(RetentionPolicy.RUNTIME)
-public @interface PerApp {
+public interface RequestCallBack<T> {
+
+    void beforeRequest();
+
+    void success(T data);
+
+    void onError(String errorMsg);
 }

@@ -17,7 +17,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.xph.qyxy.R;
-import com.xph.qyxy.newsInfo.DaggerNewsInfoComponent;
+import com.xph.qyxy.mvp.newsInfo.DaggerNewsInfoComponent;
 import com.xph.qyxy.mvp.newsInfo.NewsInfoModule;
 import com.xph.qyxy.mvp.newsInfo.Presenter.NewsPresenter;
 import com.xph.qyxy.mvp.newsInfo.View.NewsFragment;

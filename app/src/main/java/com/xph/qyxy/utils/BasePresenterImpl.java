@@ -18,19 +18,23 @@ package com.xph.qyxy.utils;
 
 import android.support.annotation.NonNull;
 
-import com.kaku.colorfulnews.listener.RequestCallBack;
-import com.kaku.colorfulnews.utils.MyUtils;
+
+import com.xph.qyxy.listener.RequestCallBack;
 
 import rx.Subscription;
 
 /**
- * @author 咖枯
- * @version 1.0 2016/6/2
+ *  BasePresenter的基本实现类
  */
 public class BasePresenterImpl<T extends BaseView, E> implements BasePresenter, RequestCallBack<E> {
     protected T mView;
 
     protected Subscription mSubscription;
+
+    @Override
+    public void start() {
+
+    }
 
     @Override
     public void onCreate() {

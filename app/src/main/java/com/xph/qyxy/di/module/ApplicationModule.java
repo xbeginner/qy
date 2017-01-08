@@ -2,6 +2,10 @@ package com.xph.qyxy.di.module;
 
 import android.content.Context;
 
+import com.xph.qyxy.App;
+import com.xph.qyxy.di.scope.ContextLife;
+import com.xph.qyxy.di.scope.PerApp;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -11,14 +15,16 @@ import dagger.Provides;
 @Module
 public final class ApplicationModule {
 
-    private final Context mContext;
+    private App mApplication;
 
-    ApplicationModule(Context context) {
-        mContext = context;
+    public ApplicationModule(App application) {
+        mApplication = application;
     }
 
     @Provides
-    Context provideContext() {
-        return mContext;
+    @PerApp
+    @ContextLife("Application")
+    public Context provideApplicationContext() {
+        return mApplication.getApplicationContext();
     }
 }

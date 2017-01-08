@@ -18,9 +18,11 @@ package com.xph.qyxy.utils;
 
 import android.support.annotation.NonNull;
 
+/**
+ * 定义Presenter中的基本方法
+ * Presenter作为Model和View交互的桥梁
+ */
 public interface BasePresenter {
-
-    void start();
 
     void onCreate();
 
